@@ -1,0 +1,26 @@
+.close-modal{
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3px;
+}
+
+.close-modal:hover{
+    cursor: pointer;
+}
+.no-trailer{
+    padding: 100px;
+    color: black;
+}
+.modal-backdrop {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
