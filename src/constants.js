@@ -4,3 +4,4 @@ export const ENDPOINT_DISCOVER = ENDPOINT + '/discover/movie?api_key=' + API_KEY
 export const ENDPOINT_SEARCH = ENDPOINT + '/search/movie?api_key=' + API_KEY
 export const ENDPOINT_MOVIE = ENDPOINT + '/movie507086?api_key=' + API_KEY + '&append_to_response=videos'
 export const ENDPOINT_YOUTUBE = "https://www.youtube.com/watch?v="
+export const POSTER_URL = "https://image.tmdb.org/t/p/w500/"
