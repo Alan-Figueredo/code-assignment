@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Movie from './Movie'
 import '../styles/starred.scss'
 
-const MovieList = ({ listType, slice }) => {
+const MovieList = ({ listType, slice, viewTrailer }) => {
     const state = useSelector((state) => state)
     const list = state[listType]
     const { clearAll } = slice.actions
@@ -32,6 +32,7 @@ const MovieList = ({ listType, slice }) => {
                             <Movie
                                 movie={movie}
                                 key={movie.id}
+                                viewTrailer={viewTrailer}
                             />
                         ))}
                     </div>
