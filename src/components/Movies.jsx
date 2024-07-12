@@ -1,14 +1,13 @@
 import Movie from './Movie'
 import '../styles/movies.scss'
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { LoadingSpinner } from './LoadingSpinner';
 import useNearScreen from '../hooks/useNearScreen';
 import { useSelector } from 'react-redux';
 import { useMovies } from '../hooks/useMovies';
 import { useSearchParams } from 'react-router-dom';
-import debounce from 'lodash.debounce';
 
-const Movies = ({ movies, viewTrailer, closeCard }) => {
+const Movies = ({ movies, viewTrailer }) => {
     const { movies: { page, hasMorePages } } = useSelector((state) => state)
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get('search');
@@ -16,7 +15,7 @@ const Movies = ({ movies, viewTrailer, closeCard }) => {
     const { isNearScreen } = useNearScreen({ externalRef, once: false });
     const { loadMovies } = useMovies();
     const isLoading = movies.fetchStatus === 'loading';
-    const debounceFn = useCallback(debounce(loadMovies, 1000), []);
+    const debounceFn = loadMovies;
 
     useEffect(() => {
         debounceFn(1, searchQuery)
@@ -36,7 +35,6 @@ const Movies = ({ movies, viewTrailer, closeCard }) => {
                             movie={movie}
                             key={movie.id}
                             viewTrailer={viewTrailer}
-                            closeCard={closeCard}
                         />
                     )
                 })}
