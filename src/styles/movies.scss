@@ -16,6 +16,11 @@
         margin-bottom: 2rem;
         width: auto;
         max-width: 250px;
+
+        @media (max-width: 720px) {
+            margin-top: 10px;
+            max-width: 150px;
+        }
     }
 
     .card,
@@ -273,7 +278,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 999;
+            z-index: 3;
             width: 100%;
             height: auto;
             border: 3px solid #fff;
@@ -333,4 +338,8 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding-bottom: 50px;
+
+    @media (max-width: 720px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

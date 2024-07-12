@@ -8,13 +8,18 @@ export const StarredButton = ({ starred, movie }) => {
 
     return (
         !starred.starredMovies.map(movie => movie.id).includes(movie.id) ? (
-            <span className="btn-star" data-testid="starred-link" onClick={() =>
-                dispatch(starMovie(movieObject(movie))
-                )}>
+            <span className="btn-star" data-testid="starred-link" onClick={(e) => {
+                dispatch(starMovie(movieObject(movie)));
+                e.stopPropagation()
+            }
+            }>
                 <i className="bi bi-star" />
             </span>
         ) : (
-            <span className="btn-star" data-testid="unstar-link" onClick={() => dispatch(unstarMovie(movie))}>
+            <span className="btn-star" data-testid="unstar-link" onClick={(e) => {
+                dispatch(unstarMovie(movie));
+                e.stopPropagation();
+            }}>
                 <i className="bi bi-star-fill" data-testid="star-fill" />
             </span>
         )

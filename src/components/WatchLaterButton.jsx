@@ -8,9 +8,9 @@ export const WatchLaterButton = ({ watchLater, movie }) => {
 
     return (
         !watchLater.watchLaterMovies.map(movie => movie.id).includes(movie.id) ? (
-            <button type="button" data-testid="watch-later" className="btn btn-light btn-watch-later" onClick={() => dispatch(addToWatchLater(movieObject(movie)))}>Watch Later</button>
+            <button type="button" data-testid="watch-later" className="btn btn-light btn-watch-later" onClick={(e) => {dispatch(addToWatchLater(movieObject(movie))); e.stopPropagation()}}>Watch Later</button>
         ) : (
-            <button type="button" data-testid="remove-watch-later" className="btn btn-light btn-watch-later blue" onClick={() => dispatch(removeFromWatchLater(movie))}><i className="bi bi-check"></i></button>
+            <button type="button" data-testid="remove-watch-later" className="btn btn-light btn-watch-later blue" onClick={(e) => {dispatch(removeFromWatchLater(movie)); e.stopPropagation()}}><i className="bi bi-check"></i></button>
         )
     )
 
